@@ -1,0 +1,1 @@
+BukuDb sebagai query SQl yang berjalan saat mendapatkan perintah dari Controller(Query SQL diletakkan didalam BukuDb. Controller adalah penghubung form dengan BukuDb. Fungsi getter akan digunakan di dalam controller untuk mengambil/get data inputan dalam form. Fungsi setter adalah untuk set data yang diperlukan untuk proses ke database.
