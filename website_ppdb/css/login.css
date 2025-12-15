@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:300);
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/bg-smk.jpeg"); /* Pindahkan gambar ke sini */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* --- Properti Kunci untuk BLUR --- */
+  filter: blur(
+    5px
+  ); /* Sesuaikan nilai (misalnya 5px) untuk tingkat keburaman */
+  /* ---------------------------------- */
+
+  z-index: -1; /* Pastikan di belakang konten */
+}
+.login-page {
+  width: 400px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.login-page .login-form h2 {
+  color: black;
+  padding-bottom: 5px;
+}
+.form-login {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  max-width: 400px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form-login input {
+  font-family: "Poppins", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  border-radius: 7px;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form-login button {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: var(--primary);
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  border-radius: 7px;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form-login button:hover,
+.form-login button:active,
+.form-login button:focus {
+  background: #0e2941;
+}
+.form-login .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form-login .message a {
+  color: #234666;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}

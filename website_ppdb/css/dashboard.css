@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: #fff;
+}
+
+.txt-welcome {
+  color: var(--txt);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: var(--bg);
+
+  border-bottom: 1px solid var(--sec);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+}
+
+.navbar .navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--txt);
+}
+
+.navbar .navbar-logo img {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
+}
+
+/* --- Teks Span Logo --- */
+.navbar .navbar-logo span {
+  font-style: italic;
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--txt);
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-extra {
+  display: flex;
+  gap: 1.5rem;
+  color: var(--txt);
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--txt);
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url("../img/smk-bg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(30, 30, 30, 0.9) 0%,
+    /* Mulai dari abu-abu sangat tua di paling bawah (0%) */ rgba(30, 30, 30, 0)
+      60% /* Pudar menjadi transparan di 60% */
+  );
+}
+
+.hero .content {
+  padding: 7rem 7%;
+  max-width: 60rem;
+}
+
+.hero .content .cta {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  color: white;
+  background-color: var(--primary);
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+}
+
+.hero .content h1 {
+  font-size: 5rem;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+  /* mix-blend-mode: difference; */
+}
+
+.hero .content span {
+  color: var(--primary);
+  font-style: italic;
+}

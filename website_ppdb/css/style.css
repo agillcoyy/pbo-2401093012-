@@ -1,0 +1,541 @@
+:root {
+  --primary: #2e7d32; /* Hijau Primary */
+  --bg: #f1f8f4; /* Background Light Greenish */
+  --sec: #a5d6a7; /* Secondary Light Green */
+  --txt: #1a1a1a; /* Teks Hitam */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: var(--txt);
+  min-height: 100vh;
+}
+
+/* --------------------
+ * 1. Styling Navbar
+ * -------------------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: rgba(241, 248, 244, 0.95);
+  border-bottom: 1px solid var(--sec);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--txt);
+}
+
+.navbar .navbar-logo img {
+  display: inline-block;
+  height: 45px;
+  width: 45px;
+  object-fit: contain;
+}
+
+/* --- Teks Span Logo --- */
+.navbar .navbar-logo span {
+  font-style: italic;
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--txt);
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: var(--txt);
+}
+
+.navbar .navbar-extra a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--txt);
+  font-size: 0.8rem;
+  transition: color 0.2s;
+}
+
+.navbar .navbar-extra a:hover {
+  color: var(--primary);
+}
+.navbar .navbar-extra a i {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.navbar .navbar-extra a p {
+  margin-top: 0.2rem;
+  line-height: 1;
+  font-weight: 500;
+}
+
+/* --------------------
+ * 2. DROPDOWN LOGIN STYLE (INI DIA CSS YANG ANDA CARI)
+ * -------------------- */
+.login-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.login-toggle {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid var(--sec);
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  min-width: 12rem;
+  z-index: 10000;
+
+  /* PENTING: Default tersembunyi */
+  display: none;
+
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+/* PENTING: Class yang di-toggle oleh JavaScript untuk menampilkan menu */
+.dropdown-menu.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Style untuk Judul di dalam Dropdown (Masuk Sebagai:) */
+.dropdown-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--txt);
+  padding: 0.5rem 1rem 0.25rem 1rem;
+  margin: 0;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 0.5rem;
+  /* text-decoration: none; Dihapus karena tidak relevan untuk h3/non-link */
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--txt);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  margin-top: 0;
+}
+
+.dropdown-item:hover {
+  background-color: var(--sec);
+  color: white;
+}
+
+/* --------------------
+ * 3. Styling Hero Section
+ * -------------------- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  /* Menambahkan kembali background-image yang hilang */
+  background-image: url("../img/smk-bg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin-top: 5.7rem;
+}
+
+/* Tambahkan overlay agar teks lebih terlihat */
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* KEMBALIKAN KE HITAM/GELAP UNTUK KONTRAS TEKS PUTIH */
+  background: linear-gradient(
+    0deg,
+    /* Mulai dari bawah */ rgba(0, 0, 0, 0.7) 0%,
+    /* Hitam 70% di bagian bawah (Memberi kontras pada teks) */
+      rgba(0, 0, 0, 0.4) 30%,
+    /* Hitam 40% di tengah bawah */ rgba(0, 0, 0, 0) 70%
+      /* Transparan di bagian tengah atas */
+  );
+  z-index: 1;
+}
+
+.hero .content {
+  padding: 7rem 7%;
+  max-width: 60rem;
+  z-index: 10;
+}
+
+.hero .content h1 {
+  font-size: 5rem;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+  line-height: 1.2;
+}
+
+.hero .content span {
+  color: var(--primary);
+  font-style: italic;
+}
+
+.hero .content p {
+  font-size: 1.2rem;
+  color: #eee;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-top: 1rem;
+  font-weight: 400;
+  max-width: 35rem;
+}
+
+.hero .content .cta {
+  margin-top: 1.5rem;
+  display: inline-block;
+  padding: 0.8rem 2.5rem;
+  font-size: 1.2rem;
+  color: white;
+  background-color: var(--primary);
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.hero .content .cta:hover {
+  background-color: #1e5c21;
+  transform: translateY(-1px);
+}
+
+/* CTA Secondary (Untuk tombol Daftar Admin) */
+.hero .content .cta-secondary {
+  background-color: transparent;
+  border: 2px solid white;
+  margin-left: 1rem;
+  box-shadow: none;
+}
+
+.hero .content .cta-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+}
+
+/* --- 1. Styling Umum Bagian Kontak --- */
+.section-box {
+  padding: 60px 20px; /* Padding atas-bawah dan samping */
+  text-align: center; /* Konten di tengah secara horizontal */
+}
+
+.section-title {
+  font-size: 2.5em; /* Ukuran judul besar */
+  color: #004d40; /* Warna hijau tua/teal untuk judul */
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.contact-content {
+  max-width: 700px; /* Lebar maksimum untuk konten kontak agar tidak terlalu lebar di layar besar */
+  margin: 0 auto;
+}
+
+.contact-content p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* --- 2. Styling Formulir Kontak --- */
+.contact-form {
+  display: grid;
+  gap: 15px; /* Jarak antara setiap elemen input */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Sudut sedikit membulat */
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #00796b; /* Border berubah warna saat fokus */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 121, 107, 0.2);
+}
+
+.contact-form textarea {
+  resize: vertical; /* Hanya boleh diubah ukurannya secara vertikal */
+}
+
+.contact-form button[type="submit"] {
+  background-color: #00796b; /* Warna utama: Hijau Teal */
+  color: #fff;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button[type="submit"]:hover {
+  background-color: #004d40; /* Sedikit lebih gelap saat di-hover */
+  transform: translateY(-2px);
+}
+
+/* --- Styling Khusus Bagian Kontak --- */
+
+/* 1. Styling Umum Bagian Kontak */
+.section-box {
+  padding: 60px 20px; /* Padding atas-bawah dan samping */
+  text-align: center; /* Konten di tengah secara horizontal */
+}
+
+.section-title {
+  font-size: 2.5em; /* Ukuran judul besar */
+  color: var(--primary, #004d40); /* Menggunakan var(--primary) atau fallback */
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.contact-content {
+  max-width: 700px; /* Lebar maksimum untuk konten kontak */
+  margin: 0 auto;
+}
+
+.contact-content p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* 2. Styling Formulir Kontak */
+.contact-form {
+  display: grid;
+  gap: 15px; /* Jarak antara setiap elemen input */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(
+    --primary-dark,
+    #00796b
+  ); /* Border berubah warna saat fokus */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 121, 107, 0.2);
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button[type="submit"] {
+  background-color: var(--primary);
+  color: #fff;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button[type="submit"]:hover {
+  background-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* 3. Styling Ikon Sosial Media/Kontak Cepat */
+.contact-content div:last-child {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.contact-content a {
+  color: var(--primary);
+  transition: color 0.3s ease;
+}
+
+.contact-content a:hover {
+  color: var(--primary);
+}
+
+/* Styling untuk Ikon Feather */
+.contact-content i[data-feather] {
+  width: 30px;
+  height: 30px;
+  stroke-width: 2;
+}
+
+/* 4. Media Queries (Responsif Dasar) */
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 2em;
+  }
+
+  .section-box {
+    padding: 40px 15px;
+  }
+}
+
+/* --- 4. Media Queries (Responsif Dasar) --- */
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 2em;
+  }
+
+  .section-box {
+    padding: 40px 15px;
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button {
+    padding: 12px;
+  }
+}
+
+/* --------------------
+ * 4. Media Queries (Responsiveness)
+ * -------------------- */
+/* Laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+  .navbar .navbar-nav {
+    display: none;
+  }
+  .navbar .navbar-extra a p {
+    display: none;
+  }
+  .navbar .navbar-extra {
+    gap: 1rem;
+  }
+  .hero .content h1 {
+    font-size: 3.5rem;
+  }
+  .hero .content .cta {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+  }
+  .dropdown-menu {
+    left: auto;
+    right: 1.4rem;
+  }
+}
+
+/* Mobile Phone */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+  .navbar .navbar-extra {
+    gap: 0.5rem;
+  }
+  .dropdown-menu {
+    right: 0.7rem;
+  }
+  .hero .content .cta {
+    margin-top: 1rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+  }
+  .hero .content .cta-secondary {
+    margin-top: 0.5rem;
+    margin-left: 0;
+  }
+}
